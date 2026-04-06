@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acervo de Relíquias de Civilizações Perdidas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ouro: #c9a84c;
+      --ouro-claro: #f0d080;
+      --fundo: #0e0b07;
+      --fundo-card: #1a1510;
+      --fundo-card2: #120f0a;
+      --texto: #e8dcc8;
+      --texto-suave: #a89878;
+      --borda: #3a2e1e;
+      --vermelho: #8b2020;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--fundo);
+      color: var(--texto);
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      line-height: 1.8;
+      background-image:
+        radial-gradient(ellipse at 20% 10%, #2a1e0a33 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 90%, #1a0a0033 0%, transparent 60%);
+    }
+
+    /* ── CABEÇALHO ── */
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      border-bottom: 1px solid var(--borda);
+      position: relative;
+    }
+
+    header::before,
+    header::after {
+      content: '✦';
+      color: var(--ouro);
+      font-size: 1.2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    header::before { left: 40px; }
+    header::after  { right: 40px; }
+
+    .subtitulo-header {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: var(--ouro-claro);
+      text-shadow: 0 0 40px #c9a84c55;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      color: var(--texto-suave);
+      font-style: italic;
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── NAVEGAÇÃO ── */
+    nav {
+      background: var(--fundo-card2);
+      border-bottom: 1px solid var(--borda);
+      padding: 14px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--texto-suave);
+      text-decoration: none;
+      text-transform: uppercase;
+      margin: 0 20px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--ouro-claro);
+    }
+
+    /* ── LAYOUT PRINCIPAL ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    /* ── TÍTULOS DE SEÇÃO ── */
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--ouro);
+      letter-spacing: 0.1em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--borda);
+      margin-bottom: 30px;
+    }
+
+    h2 span {
+      color: var(--texto-suave);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--ouro-claro);
+      margin-bottom: 10px;
+    }
+
+    /* ── APRESENTAÇÃO ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .intro-grid p {
+      color: var(--texto);
+    }
+
+    @media (max-width: 640px) {
+      .intro-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── CARDS DE PEÇAS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--fundo-card);
+      border: 1px solid var(--borda);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px #c9a84c22;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      filter: sepia(30%) contrast(1.1);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--ouro);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .card-body h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .card-body p {
+      font-size: 0.92rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    /* ── LISTAS ── */
+    .lista-ornada {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lista-ornada li {
+      padding: 10px 0 10px 28px;
+      border-bottom: 1px solid var(--borda);
+      position: relative;
+      color: var(--texto);
+    }
+
+    .lista-ornada li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--ouro);
+      font-size: 0.6rem;
+      top: 14px;
+    }
+
+    .lista-ornada li:last-child {
+      border-bottom: none;
+    }
+
+    ol.lista-num {
+      padding-left: 28px;
+    }
+
+    ol.lista-num li {
+      padding: 8px 0;
+      color: var(--texto);
+      border-bottom: 1px solid var(--borda)55;
+    }
+
+    ol.lista-num li:last-child {
+      border-bottom: none;
+    }
+
+    /* ── TABELA ── */
+    .tabela-acervo {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .tabela-acervo thead tr {
+      background: #2a1e0a;
+    }
+
+    .tabela-acervo th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--ouro);
+      text-transform: uppercase;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--ouro);
+    }
+
+    .tabela-acervo td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--borda);
+      color: var(--texto);
+      vertical-align: top;
+    }
+
+    .tabela-acervo tr:nth-child(even) td {
+      background: #ffffff05;
+    }
+
+    .tabela-acervo tr:hover td {
+      background: #c9a84c0d;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--vermelho);
+      color: #f5c5c5;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      padding: 2px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .badge.raro    { background: #1a3a6e; color: #b0c8f5; }
+    .badge.unico   { background: #3a1a5e; color: #d4b0f5; }
+    .badge.lendario{ background: #5e3a00; color: #f5d080; }
+
+    /* ── LINKS ── */
+    a {
+      color: var(--ouro);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--ouro);
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--ouro-claro);
+    }
+
+    .links-externos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .links-externos a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      border: 1px solid var(--borda);
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--ouro);
+      transition: background 0.3s;
+    }
+
+    .links-externos a:hover {
+      background: #c9a84c11;
+    }
+
+    /* ── CITAÇÃO ── */
+    blockquote {
+      border-left: 3px solid var(--ouro);
+      margin: 30px 0;
+      padding: 16px 28px;
+      background: #c9a84c08;
+      font-style: italic;
+      color: var(--texto-suave);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--ouro);
+      font-style: normal;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RODAPÉ ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--borda);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--texto-suave);
+      text-transform: uppercase;
+    }
+
+    footer .ornamento {
+      color: var(--ouro);
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <p class="subtitulo-header">Acervo Particular &mdash; Edição Perpétua</p>
+    <h1>Relíquias de<br>Civilizações Perdidas</h1>
+    <p>Uma coleção imaginária de artefatos únicos de culturas que o tempo esqueceu &mdash; reunidos com recursos ilimitados e paixão pela história oculta da humanidade.</p>
+  </header>
+
+  <!-- NAVEGAÇÃO -->
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#pecas">Peças</a>
+    <a href="#inventario">Inventário</a>
+    <a href="#regras">Regras</a>
+    <a href="#links">Links</a>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+
+    <!-- SEÇÃO 1: SOBRE O ACERVO -->
+    <section id="sobre">
+      <h2><span>Seção I</span>Sobre o Acervo</h2>
+
+      <div class="intro-grid">
+        <p>
+          Este acervo reúne artefatos de civilizações que a historiografia oficial mal reconhece. Cada peça foi obtida em escavações clandestinas legalizadas, leilões secretos e expedições financiadas por recursos sem limites. O objetivo não é apenas possuir &mdash; é <em>preservar o que o mundo quase perdeu.</em>
+        </p>
+        <p>
+          A coleção abrange objetos de mais de <strong>17 culturas extintas</strong>, com datações que variam de 12.000 a.C. até o século XV. Cada peça é acompanhada de laudo arqueológico, análise por carbono-14 e, em casos especiais, registros de testemunhos orais de povos descendentes.
+        </p>
+      </div>
+
+      <blockquote>
+        "Um artefato não é apenas um objeto. É uma mensagem de alguém que viveu, amou e morreu &mdash; e decidiu deixar algo para trás."
+        <cite>&mdash; Howard Carter, arqueólogo, 1922</cite>
+      </blockquote>
+    </section>
+
+    <!-- SEÇÃO 2: PEÇAS EM DESTAQUE -->
+    <section id="pecas">
+      <h2><span>Seção II</span>Peças em Destaque</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <img class="card-img"
+               src="capacete.png"
+               alt="Capacete de Ouro de Meskalamdug" />
+          <div class="card-body">
+            <span class="card-tag">Suméria · ~2.500 a.C.</span>
+            <h3>Capacete de Ouro de Meskalamdug</h3>
+            <p>Capacete funerário em ouro maciço descoberto nas Tumbas Reais de Ur, no atual Iraque. Pertenceu ao príncipe Meskalamdug e é um dos artefatos em ouro mais refinados da Mesopotâmia antiga.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-img"
+               src="tabua.png"
+               alt="Tábua do Dilúvio de Nínive" />
+          <div class="card-body">
+            <span class="card-tag">Assíria · ~700 a.C.</span>
+            <h3>Tábua do Dilúvio de Nínive</h3>
+            <p>Tábua de argila cuneiforme descoberta nas ruínas da biblioteca de Assurbanipal, em Nínive. Contém a versão mais antiga conhecida da história do dilúvio, anterior ao relato bíblico, parte da Epopeia de Gilgamesh.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-img"
+               src="pergaminhos.png"
+               alt="Pergaminhos do Mar Morto" />
+          <div class="card-body">
+            <span class="card-tag">Israel · 300 a.C. – 70 d.C.</span>
+            <h3>Pergaminhos do Mar Morto</h3>
+            <p>Manuscritos bíblicos descobertos em 1947 nas cavernas de Qumran, em Israel. São os textos mais antigos do Antigo Testamento já encontrados, escritos em hebraico, aramaico e grego, com mais de 2.000 anos de história.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: INVENTÁRIO COMPLETO (TABELA) -->
+    <section id="inventario">
+      <h2><span>Seção III</span>Inventário Completo</h2>
+
+      <p style="margin-bottom:24px; color: var(--texto-suave); font-style: italic;">
+        Abaixo está o registro formal de todas as peças catalogadas no acervo, com sua origem, período, material e classificação de raridade.
+      </p>
+
+      <table class="tabela-acervo">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome da Peça</th>
+            <th>Civilização</th>
+            <th>Período</th>
+            <th>Material</th>
+            <th>Raridade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>Capacete de Ouro de Meskalamdug</td>
+            <td>Suméria</td>
+            <td>~2.500 a.C.</td>
+            <td>Ouro maciço</td>
+            <td><span class="badge lendario">Lendário</span></td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Tábua do Dilúvio de Nínive</td>
+            <td>Assíria</td>
+            <td>~700 a.C.</td>
+            <td>Argila cuneiforme</td>
+            <td><span class="badge unico">Único</span></td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Pergaminhos do Mar Morto</td>
+            <td>Israel</td>
+            <td>300 a.C. – 70 d.C.</td>
+            <td>Pergaminho e papiro</td>
+            <td><span class="badge lendario">Lendário</span></td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>Amuleto da Serpente Dupla</td>
+            <td>Civilização do Indo</td>
+            <td>2.500 a.C.</td>
+            <td>Turquesa e prata</td>
+            <td><span class="badge raro">Raro</span></td>
+          </tr>
+          <tr>
+            <td>005</td>
+            <td>Esfera de Cristal de Mu</td>
+            <td>Lemúria (hipotética)</td>
+            <td>Indeterminado</td>
+            <td>Quartzo hialino</td>
+            <td><span class="badge lendario">Lendário</span></td>
+          </tr>
+          <tr>
+            <td>006</td>
+            <td>Frasco de Lágrimas de Ísis</td>
+            <td>Egito Pré-Dinástico</td>
+            <td>3.500 a.C.</td>
+            <td>Alabastro e obsidiana</td>
+            <td><span class="badge unico">Único</span></td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Bastão do Oráculo de Delfos</td>
+            <td>Grécia Arcaica</td>
+            <td>800 a.C.</td>
+            <td>Madeira de loureiro e bronze</td>
+            <td><span class="badge raro">Raro</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SEÇÃO 4: REGRAS DO ACERVO (LISTAS) -->
+    <section id="regras">
+      <h2><span>Seção IV</span>Regras e Princípios do Colecionador</h2>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+
+        <div>
+          <h3>Princípios Invioláveis</h3>
+          <ul class="lista-ornada">
+            <li>Nenhuma peça pode ser adquirida se isso causar dano ao povo de origem.</li>
+            <li>Toda peça deve ter proveniência documentada e auditável.</li>
+            <li>O acervo é aberto a pesquisadores credenciados mediante agendamento.</li>
+            <li>Peças únicas jamais poderão ser vendidas &mdash; apenas emprestadas a museus.</li>
+            <li>A coleção deve ser doada a uma instituição pública após o falecimento do colecionador.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Processo de Aquisição</h3>
+          <ol class="lista-num">
+            <li>Identificação da peça e verificação de autenticidade preliminar.</li>
+            <li>Laudo arqueológico por laboratório independente.</li>
+            <li>Consulta a comunidades descendentes da civilização de origem.</li>
+            <li>Análise jurídica de propriedade e direito internacional.</li>
+            <li>Negociação e aquisição formal com contrato notariado.</li>
+            <li>Registro no inventário e inserção no sistema de conservação.</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: LINKS EXTERNOS -->
+    <section id="links">
+      <h2><span>Seção V</span>Fontes e Referências</h2>
+
+      <p>Para saber mais sobre as civilizações representadas neste acervo, consulte as fontes abaixo:</p>
+
+      <div class="links-externos">
+        <a href="https://grandegyptianmuseum.org" target="_blank">Grande Museu Egípcio</a>
+        <a href="https://www.britishmuseum.org" target="_blank">British Museum</a>
+        <a href="https://www.louvre.fr" target="_blank">Museu do Louvre</a>
+        <a href="https://www.nationalgeographic.com/history" target="_blank">National Geographic — História</a>
+        <a href="https://www.museivaticani.va" target="_blank">Museus do Vaticano</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <span class="ornamento">✦ ✦ ✦</span>
+    <p>&copy; 2025 — Acervo de Relíquias de Civilizações Perdidas</p>
+    <p style="margin-top:6px;">Página criada como atividade de HTML — Estrutura e organização com tags semânticas</p>
+  </footer>
+
+</body>
+</html>
