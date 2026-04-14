@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material de Estudo - Redes de Computadores</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* ── HEADER ── */
+header {
+    background: #020617;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px solid #38bdf8;
+}
+
+header h1 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+/* ── NAV ── */
+nav {
+    margin-top: 12px;
+}
+
+nav a {
+    color: #e2e8f0;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* ── MAIN ── */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+/* ── SECTIONS ── */
+section {
+    background: #020617;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* ── HEADINGS ── */
+h2 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-top: 15px;
+    color: #7dd3fc;
+}
+
+/* ── PARAGRAPHS ── */
+p {
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+/* ── IMAGES ── */
+figure {
+    margin: 20px auto;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    max-width: 560px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #1e3a5f;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* ── LISTS ── */
+ul, ol {
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+ul li, ol li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* ── TABLE ── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #38bdf8;
+}
+
+thead {
+    background: #1e3a5f;
+}
+
+th {
+    padding: 12px 10px;
+    text-align: center;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background: #0f172a;
+    transition: background 0.2s;
+}
+
+/* ── CARDS ── */
+.card {
+    background: #0f172a;
+    padding: 18px 20px;
+    margin-top: 12px;
+    border-left: 4px solid #38bdf8;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* ── QUIZ ── */
+fieldset {
+    border: 1px solid #1e3a5f;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+legend {
+    color: #38bdf8;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+.pergunta {
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.pergunta p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #7dd3fc;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+label:hover {
+    background: #0f172a;
+}
+
+label input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #38bdf8;
+    cursor: pointer;
+}
+
+/* ── BUTTON ── */
+button {
+    background: #38bdf8;
+    color: black;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+/* ── RESULTADO ── */
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px;
+    border-radius: 8px;
+    display: none;
+}
+
+#resultado.show {
+    display: block;
+    background: #0f172a;
+    border-left: 4px solid #38bdf8;
+}
+
+/* ── FOOTER ── */
+footer {
+    background: #020617;
+    text-align: center;
+    padding: 20px 30px;
+    border-top: 2px solid #1e3a5f;
+    color: #475569;
+    font-size: 14px;
+}
+
+footer span {
+    color: #38bdf8;
+}
+</style>
+</head>
+
+<body>
+<script src="script.js"></script>
+<!-- ══ CABEÇALHO ══ -->
+<header>
+    <h1>Material de Estudo - Redes de Computadores</h1>
+    <nav>
+        <a href="#intro">Introdução</a>
+        <a href="#tipos">Tipos de Rede</a>
+        <a href="#topologias">Topologias</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#avaliacao">Avaliação</a>
+    </nav>
+</header>
+
+<!-- ══ CONTEÚDO PRINCIPAL ══ -->
+<main>
+
+    <!-- ── INTRODUÇÃO ── -->
+    <section id="intro">
+        <h2>O que é uma Rede de Computadores?</h2>
+
+        <p>Uma <strong>rede de computadores</strong> é a conexão entre dois ou mais dispositivos com o objetivo de compartilhar informações, recursos e serviços de forma eficiente.</p>
+
+        <p>Esses dispositivos incluem computadores, celulares, servidores, impressoras e roteadores, podendo estar conectados por cabos físicos (como cabo de par trançado e fibra óptica) ou por redes sem fio (Wi-Fi, Bluetooth).</p>
+
+        <p>As redes são fundamentais no mundo moderno: elas permitem o acesso à internet, o envio de e-mails, a transferência de arquivos e o funcionamento de serviços como streaming e videoconferências.</p>
+
+        <figure>
+            <img src="i_rede.png" alt="Diagrama de uma rede de computadores com roteador central">
+            <figcaption>Figura 1 — Dispositivos conectados a um roteador central formando uma rede local.</figcaption>
+        </figure>
+    </section>
+
+    <!-- ── TIPOS DE REDE ── -->
+    <section id="tipos">
+        <h2>Tipos de Rede</h2>
+
+        <p>As redes são classificadas de acordo com sua <strong>área de abrangência geográfica</strong>. Os três principais tipos são:</p>
+
+        <div class="card">
+            <h3>LAN — Local Area Network (Rede Local)</h3>
+            <p>Rede de curto alcance utilizada em ambientes pequenos como residências, escolas e escritórios. Possui alta velocidade de transmissão e baixo custo de implementação.</p>
+            <p><strong>Exemplo:</strong> rede Wi-Fi de uma casa ou laboratório de informática.</p>
+        </div>
+
+        <div class="card">
+            <h3>MAN — Metropolitan Area Network (Rede Metropolitana)</h3>
+            <p>Rede que cobre áreas urbanas como bairros ou cidades inteiras. Geralmente administrada por provedores de internet ou órgãos públicos.</p>
+            <p><strong>Exemplo:</strong> rede de câmeras de segurança de uma prefeitura.</p>
+        </div>
+
+        <div class="card">
+            <h3>WAN — Wide Area Network (Rede de Longa Distância)</h3>
+            <p>Rede de longa distância que pode conectar países e continentes. A maior WAN existente é a própria <strong>Internet</strong>.</p>
+            <p><strong>Exemplo:</strong> conexão entre filiais de uma empresa em países diferentes.</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Alcance</th>
+                    <th>Velocidade</th>
+                    <th>Exemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LAN</td>
+                    <td>Até 1 km</td>
+                    <td>Alta (até 10 Gbps)</td>
+                    <td>Rede de casa / escola</td>
+                </tr>
+                <tr>
+                    <td>MAN</td>
+                    <td>Até 50 km</td>
+                    <td>Média</td>
+                    <td>Rede de uma cidade</td>
+                </tr>
+                <tr>
+                    <td>WAN</td>
+                    <td>Global</td>
+                    <td>Variável</td>
+                    <td>Internet</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <figure>
+            <img src="i_tipos.png" alt="Ilustração dos tipos de rede LAN, MAN e WAN">
+            <figcaption>Figura 2 — Comparação visual entre LAN, MAN e WAN.</figcaption>
+        </figure>
+    </section>
+
+    <!-- ── TOPOLOGIAS ── -->
+    <section id="topologias">
+        <h2>Topologias de Rede</h2>
+
+        <p>A <strong>topologia de rede</strong> define a forma como os dispositivos estão organizados e interconectados. Existem quatro topologias principais:</p>
+
+        <ul>
+            <li><strong>Estrela:</strong> todos os dispositivos se conectam a um ponto central (switch ou hub). É a mais usada em redes domésticas e corporativas.</li>
+            <li><strong>Barramento:</strong> todos os dispositivos compartilham um único cabo principal. Simples, porém obsoleta — uma falha no cabo derruba a rede inteira.</li>
+            <li><strong>Anel:</strong> os dispositivos formam um circuito fechado. Os dados trafegam em uma única direção até chegar ao destino.</li>
+            <li><strong>Malha:</strong> cada dispositivo se conecta a vários outros, criando múltiplos caminhos. Alta confiabilidade — usada em redes críticas.</li>
+        </ul>
+
+        <figure>
+            <img src="i_topologia.png" alt="Ilustração das quatro topologias de rede">
+            <figcaption>Figura 3 — Representação topologia Estrela</figcaption>
+        </figure>
+    </section>
+
+    <!-- ── COMO FUNCIONA ── -->
+    <section id="como-funciona">
+        <h2>Como uma Rede Funciona?</h2>
+
+        <p>A comunicação em rede segue um conjunto de regras chamado <strong>protocolo</strong>. O principal protocolo da internet é o <strong>TCP/IP</strong>, que divide os dados em pequenos pacotes e os envia pelo caminho mais eficiente até o destino.</p>
+
+        <p>O processo de envio de dados em rede ocorre nas seguintes etapas:</p>
+
+        <ol>
+            <li>O dispositivo de origem <strong>divide os dados em pacotes</strong> menores.</li>
+            <li>Cada pacote recebe o <strong>endereço IP</strong> de destino.</li>
+            <li>O <strong>roteador</strong> decide o melhor caminho para cada pacote.</li>
+            <li>Os pacotes chegam ao destino e são <strong>remontados</strong> na ordem correta.</li>
+            <li>O dispositivo de destino <strong>confirma o recebimento</strong> ao remetente.</li>
+        </ol>
+
+        <div class="card">
+            <h3>O que é um endereço IP?</h3>
+            <p>O <strong>IP (Internet Protocol)</strong> é o identificador único de cada dispositivo em uma rede — funciona como o "endereço residencial" do computador. Exemplo de IPv4: <strong>192.168.0.1</strong>.</p>
+        </div>
+    </section>
+
+    <!-- ── AVALIAÇÃO ── -->
+    <section id="avaliacao">
+        <h2>Avaliação</h2>
+        <p>Responda todas as questões abaixo para testar o que você aprendeu:</p>
+
+        <form id="quiz" action="#">
+
+            <fieldset>
+                <legend>Questões de Múltipla Escolha</legend>
+
+                <div class="pergunta">
+                    <p>1) Qual das situações abaixo envolve o uso de uma rede de computadores?</p>
+                    <label><input type="radio" name="q1" value="c" required> Enviar uma mensagem pelo WhatsApp</label>
+                    <label><input type="radio" name="q1" value="e"> Escrever um texto no bloco de notas offline</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>2) O que significa a sigla LAN?</p>
+                    <label><input type="radio" name="q2" value="e" required> Large Area Network (Rede de Grande Área)</label>
+                    <label><input type="radio" name="q2" value="c"> Local Area Network (Rede de Área Local)</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>3) A Internet é classificada como qual tipo de rede?</p>
+                    <label><input type="radio" name="q3" value="e" required> LAN</label>
+                    <label><input type="radio" name="q3" value="c"> WAN</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>4) Qual topologia de rede possui um ponto central ao qual todos os dispositivos se conectam?</p>
+                    <label><input type="radio" name="q4" value="e" required> Anel</label>
+                    <label><input type="radio" name="q4" value="c"> Estrela</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>5) Qual protocolo é responsável pelo envio de dados na Internet?</p>
+                    <label><input type="radio" name="q5" value="c" required> TCP/IP</label>
+                    <label><input type="radio" name="q5" value="e"> HTTP apenas</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>6) Qual topologia oferece maior confiabilidade por ter múltiplos caminhos?</p>
+                    <label><input type="radio" name="q6" value="e" required> Barramento</label>
+                    <label><input type="radio" name="q6" value="c"> Malha</label>
+                </div>
+                <div class="pergunta">
+                    <p>7) Qual dispositivo é responsável por encaminhar dados entre redes?</p>
+                    <label><input type="radio" name="q7" value="c" required> Roteador</label>
+                    <label><input type="radio" name="q7" value="e"> Monitor</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>8) O que é um endereço IP?</p>
+                    <label><input type="radio" name="q8" value="c" required> Identificador do dispositivo</label>
+                    <label><input type="radio" name="q8" value="e"> Tipo de cabo</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>9) Qual NÃO é meio de transmissão?</p>
+                    <label><input type="radio" name="q9" value="c" required> Papel</label>
+                    <label><input type="radio" name="q9" value="e"> Fibra óptica</label>
+                </div>
+
+                <div class="pergunta">
+                    <p>10) Qual é uma rede sem fio?</p>
+                    <label><input type="radio" name="q10" value="c" required> Wi-Fi</label>
+                    <label><input type="radio" name="q10" value="e"> Cabo coaxial</label>
+                </div>
+
+            </fieldset>
+
+            <button type="submit">Corrigir Quiz</button>
+
+        </form>
+
+        <div id="resultado"></div>
+
+    </section>
+
+</main>
+
+<!-- ══ RODAPÉ ══ -->
+<footer>
+    <p>Material didático produzido para a disciplina de <span>Redes de Computadores</span></p>
+    <p style="margin-top: 6px;">Desenvolvido com HTML, CSS e JavaScript &mdash; <span>2026</span></p>
+</footer>
+
+<style>
+/* Animação do resultado */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+</body>
+</html>
