@@ -1,0 +1,56 @@
+/* Fundo geral da página */
+body {
+    background-color: #f0f4f8; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Navegação */
+nav {
+    background: #0d47a1;
+    text-align: center;
+    padding: 15px;
+}
+
+nav p {
+    display: inline; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #ffcc00; 
+}
+
+/* Classe das seções */
+.secao {
+    background-color: #ffffff; 
+    margin: 30px auto; 
+    padding: 25px;
+    width: 80%;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+/* Títulos */
+.titulo {
+    font-size: 24px; 
+    font-weight: bold;
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Parágrafos */
+p {
+    font-size: 16px;
+    color: #333;
+    text-align: justify;
+    line-height: 1.6; 
+}
