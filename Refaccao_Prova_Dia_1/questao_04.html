@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrela da Competição</title>
+
+  <style>
+    :root {
+      --verde:  #00c853;
+      --ouro:   #ffd600;
+      --escuro: #0a0f1e;
+      --card:   #161d30;
+      --texto:  #e2e8f0;
+      --muted:  #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+
+      /* imagem de fundo */
+      background-image: url('FIFA-World-Cup-26.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      /* escurece para o card se destacar */
+      position: relative;
+    }
+
+    /* overlay escuro sobre o fundo */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 25, 0.72);
+      z-index: 0;
+    }
+
+    /* todo conteúdo acima do overlay */
+    .voltar,
+    .titulo-pagina,
+    .card-jogador {
+      position: relative;
+      z-index: 1;
+    }
+
+    .voltar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,200,83,.15);
+      color: var(--verde);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,200,83,.3);
+      transition: background .2s;
+    }
+
+    .voltar:hover { background: rgba(0,200,83,.28); }
+
+    .titulo-pagina {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 32px;
+      text-align: center;
+      letter-spacing: .04em;
+    }
+
+    .titulo-pagina span { color: var(--ouro); }
+
+    .card-jogador {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 36px;
+      text-align: center;
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+    }
+
+    /* barra colorida no topo do card */
+    .card-jogador::before {
+      content: '';
+      display: block;
+      height: 4px;
+      margin: -36px -36px 28px -36px;
+      background: linear-gradient(to right, var(--verde), var(--ouro));
+    }
+
+    .img-principal {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      background-color: #1e2a40;
+      margin-bottom: 24px;
+      border: 2px solid rgba(0,200,83,.3);
+      transition: opacity 0.4s ease;
+    }
+
+    .info-lista {
+      text-align: left;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .info-lista p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--texto);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .placeholder {
+      color: transparent;
+      background-color: #2a3450;
+      display: inline-block;
+      min-width: 180px;
+      height: 1.1em;
+      border-radius: 4px;
+      user-select: none;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .5; }
+    }
+
+    .card-text {
+      color: var(--verde);
+      font-weight: 600;
+      background-color: transparent;
+      animation: none;
+      height: auto;
+      min-width: unset;
+    }
+
+    .btn-revelar {
+      background: var(--verde);
+      color: #000;
+      border: none;
+      padding: 12px 36px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .btn-revelar:hover {
+      transform: scale(1.03);
+      background: #00e676;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="voltar">← Voltar</a>
+
+  <p class="titulo-pagina">⭐ Estrela da <span>Competição</span></p>
+
+  <div class="card-jogador">
+
+    <!-- img_.svg aparece antes de revelar -->
+    <img id="player-img"
+         src="img_.svg"
+         alt="Jogador"
+         class="img-principal">
+
+    <div class="info-lista">
+      <p>⚽ <strong>Nome:</strong> <span id="Nome" class="placeholder">...</span></p>
+      <p>📅 <strong>Nascimento:</strong> <span id="Data_Nas" class="placeholder">...</span></p>
+      <p>📏 <strong>Altura:</strong> <span id="Altura" class="placeholder">...</span></p>
+      <p>🏃 <strong>Posição:</strong> <span id="Posicao" class="placeholder">...</span></p>
+      <p>⭐ <strong>Rank:</strong> <span id="Rank" class="placeholder">...</span></p>
+    </div>
+
+    <button class="btn-revelar" onclick="revelar()">Revelar</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
