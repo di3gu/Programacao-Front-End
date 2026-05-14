@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>CPF</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input {
+    width: 100%;
+    height: 40px; 
+    padding: 0 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 8px 0;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(59,130,246,0.4);
+}
+
+a {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    color: #93c5fd;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+p {
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>⚡ CPF</h2>
+
+    <input id="cpf" placeholder="Digite o CPF">
+    <button onclick="validarCPF()">Validar</button>
+
+    <p id="cpfResult"></p>
+
+    <a href="index.html">⬅ Voltar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

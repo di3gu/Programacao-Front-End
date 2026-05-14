@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Taxas</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input, select {
+    width: 100%;
+    height: 40px;             
+    padding: 0 10px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-size: 12px;
+    color: #e2e8f0;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+select option {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+input:focus, select:focus {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.02);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(59,130,246,0.4);
+}
+
+a {
+    color: #93c5fd;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+p {
+    margin: 6px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>💳 Taxas</h2>
+
+    <!-- SELECT COM SETA -->
+    <div class="select-wrapper">
+        <select id="bandeira">
+            <option value="visa">Visa</option>
+            <option value="master">Master</option>
+            <option value="elo">Elo</option>
+        </select>
+    </div>
+
+    <input id="valor" placeholder="Valor da venda">
+    <input id="parcelas" placeholder="Número de parcelas">
+
+    <button onclick="calcularTaxas()">Calcular</button>
+
+    <p>Taxa: <span id="taxaOut"></span></p>
+    <p>Juros: <span id="jurosOut"></span></p>
+    <p>Parcela: <span id="parcelaOut"></span></p>
+
+    <a href="index.html">⬅ Voltar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

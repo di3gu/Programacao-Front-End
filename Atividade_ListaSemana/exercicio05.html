@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>VIP</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(59,130,246,0.4);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+li {
+    background: rgba(255,255,255,0.05);
+    margin: 6px 0;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+li button {
+    width: auto;
+    margin-left: 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+a {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    color: #93c5fd;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>👥 VIP</h2>
+
+    <input id="nome" placeholder="Nome do convidado">
+
+    <button onclick="addConvidado()">Adicionar</button>
+
+    <ul id="lista"></ul>
+
+    <a href="index.html">⬅ Voltar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

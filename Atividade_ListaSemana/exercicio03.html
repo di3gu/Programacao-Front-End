@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Média</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input {
+    width: 100%;
+    height: 40px; /* 🔥 padrão do sistema */
+    padding: 0 10px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(59,130,246,0.4);
+}
+
+a {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    color: #93c5fd;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+p {
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🎓 Média</h2>
+
+    <input id="n1" placeholder="Nota 1">
+    <input id="n2" placeholder="Nota 2">
+    <input id="n3" placeholder="Nota 3">
+
+    <button onclick="calcularMedia()">Calcular</button>
+
+    <p id="mediaResult"></p>
+
+    <a href="index.html">⬅ Voltar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
